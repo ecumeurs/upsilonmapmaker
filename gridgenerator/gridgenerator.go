@@ -323,15 +323,16 @@ func (g *GridGenerator) generateRiverSegment(gr *grid.Grid, start position.Posit
 // GeneratePlainSquare returns a perfectly flat size×size grid.
 // Every cell is of type Ground placed at Z=1. No height variation, no obstructions.
 // Intended for small, deterministic testing maps (e.g. the 10×10 web-UI battle map).
-func GeneratePlainSquare(size int) *grid.Grid {
+// add 10% obstacle
+func GeneratePlainSquare(w, h int) *grid.Grid {
 	gr := new(grid.Grid)
 	gr.Cells = make(map[position.Position]*cell.Cell)
-	gr.Width = size
-	gr.Length = size
-	gr.Height = 5
+	gr.Width = w
+	gr.Length = h
+	gr.Height = 2
 
-	for x := 0; x < size; x++ {
-		for y := 0; y < size; y++ {
+	for x := 0; x < w; x++ {
+		for y := 0; y < h; y++ {
 			c := &cell.Cell{
 				Position: position.New(x, y, 1),
 				Type:     cell.Ground,
@@ -340,5 +341,9 @@ func GeneratePlainSquare(size int) *grid.Grid {
 		}
 	}
 
+	max := 0.1 * float32(h) * float32(w)
+	for i := 0; i < int(max); i++ {
+		gr.ReplaceCellType(gr.RandomPosition(), cell.Obstacle)
+	}
 	return gr
 }

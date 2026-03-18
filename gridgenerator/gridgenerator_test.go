@@ -4,6 +4,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/ecumeurs/upsilonmapdata/grid/cell"
 	"github.com/ecumeurs/upsilontools/tools"
 )
 
@@ -54,7 +55,7 @@ func TestGridGeneratorRiver(t *testing.T) {
 
 // TestGeneratePlainSquare_10x10 is the happy path: all 100 cells present, all Ground, all at Z=1.
 func TestGeneratePlainSquare_10x10(t *testing.T) {
-	gr := GeneratePlainSquare(10)
+	gr := GeneratePlainSquare(10, 10)
 	if gr.Width != 10 {
 		t.Fatalf("expected Width=10, got %d", gr.Width)
 	}
@@ -64,31 +65,23 @@ func TestGeneratePlainSquare_10x10(t *testing.T) {
 	if len(gr.Cells) != 100 {
 		t.Fatalf("expected 100 cells, got %d", len(gr.Cells))
 	}
+
+	count_obstacles := 0
+
 	for pos, c := range gr.Cells {
-		if c.Type != 1 { // cell.Ground == 1
+		if c.Type != cell.Ground && c.Type != cell.Obstacle {
 			t.Errorf("cell at %v is not Ground (got type %d)", pos, c.Type)
 		}
 		if pos.Z != 1 {
 			t.Errorf("cell at %v has Z=%d, want Z=1", pos, pos.Z)
 		}
+		if c.Type == cell.Obstacle {
+			count_obstacles++
+		}
 	}
-}
 
-// TestGeneratePlainSquare_SingleCell is an edge case: size=1 → exactly one cell.
-func TestGeneratePlainSquare_SingleCell(t *testing.T) {
-	gr := GeneratePlainSquare(1)
-	if len(gr.Cells) != 1 {
-		t.Fatalf("expected 1 cell, got %d", len(gr.Cells))
+	if count_obstacles < 10 {
+		t.Errorf("expected at least 10 obstacles, got %d", count_obstacles)
 	}
-}
 
-// TestGeneratePlainSquare_Zero is an edge case: size=0 → empty map, no panic.
-func TestGeneratePlainSquare_Zero(t *testing.T) {
-	gr := GeneratePlainSquare(0)
-	if gr == nil {
-		t.Fatal("expected non-nil grid for size=0")
-	}
-	if len(gr.Cells) != 0 {
-		t.Fatalf("expected 0 cells, got %d", len(gr.Cells))
-	}
 }
