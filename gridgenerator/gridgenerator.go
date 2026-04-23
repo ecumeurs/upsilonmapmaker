@@ -341,9 +341,9 @@ func GeneratePlainSquare(w, h int) *grid.Grid {
 		}
 	}
 
-	max := 0.1 * float32(h) * float32(w)
+	/*max := 0.1 * float32(h) * float32(w)
 	for i := 0; i < int(max); i++ {
 		gr.ReplaceCellType(gr.RandomPosition(), cell.Obstacle)
-	}
+	}*/
 	return gr
 }
