@@ -66,22 +66,12 @@ func TestGeneratePlainSquare_10x10(t *testing.T) {
 		t.Fatalf("expected 100 cells, got %d", len(gr.Cells))
 	}
 
-	count_obstacles := 0
-
 	for pos, c := range gr.Cells {
-		if c.Type != cell.Ground && c.Type != cell.Obstacle {
+		if c.Type != cell.Ground {
 			t.Errorf("cell at %v is not Ground (got type %d)", pos, c.Type)
 		}
 		if pos.Z != 1 {
 			t.Errorf("cell at %v has Z=%d, want Z=1", pos, pos.Z)
 		}
-		if c.Type == cell.Obstacle {
-			count_obstacles++
-		}
 	}
-
-	if count_obstacles < 10 {
-		t.Errorf("expected at least 10 obstacles, got %d", count_obstacles)
-	}
-
 }
