@@ -99,7 +99,7 @@ func (g *GridGenerator) generateFlat() *grid.Grid {
 	// the ground is expected to be flat in the middle and to have a slight slope on the sides
 
 	// determine a random height for the ground
-	ground_height := tools.RandomInt(2, gr.Height)
+	ground_height := tools.RandomInt(1, gr.Height-1)
 	fmt.Println("ground height", ground_height)
 
 	// create the ground, do not create cell where there is no ground (above or below)
