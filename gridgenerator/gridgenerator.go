@@ -58,7 +58,7 @@ func fillBellowGroundWithDirt(g *grid.Grid) {
 func ensureNoDirtIsVisibleOnTop(g *grid.Grid) {
 	for x := 0; x < g.Width; x++ {
 		for y := 0; y < g.Length; y++ {
-			z := g.TopMostGroundAt(x, y)
+			z := g.TopMostCellAt(x, y)
 			if c, ok := g.Cells[position.New(x, y, z)]; ok {
 				if c.Type == cell.Dirt {
 					c.Type = cell.Ground
