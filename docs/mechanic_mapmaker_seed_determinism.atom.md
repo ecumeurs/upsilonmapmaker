@@ -9,7 +9,7 @@ dependents: []
 priority: 2
 tags: [mapmaker,determinism,seed]
 parents:
-  - [[contract_mapmaker_contract]]
+  - [[shared:contract_mapmaker_contract]]
 ---
 
 # New Atom
