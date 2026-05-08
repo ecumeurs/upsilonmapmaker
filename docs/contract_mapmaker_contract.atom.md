@@ -2,7 +2,9 @@
 id: contract_mapmaker_contract
 status: STABLE
 type: CONTRACT
-dependents: []
+dependents:
+  - [[mechanic_mapmaker_seed_determinism]]
+  - [[rule_mapmaker_board_generation_constraints]]
 layer: BUSINESS
 version: 1.0
 priority: 1
