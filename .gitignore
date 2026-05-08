@@ -1,3 +1,4 @@
 *.html*.db
 *.sqlite
 *.sqlite3
+*.html
