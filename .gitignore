@@ -1,4 +1,7 @@
-*.html*.db
+*.db
 *.sqlite
 *.sqlite3
 *.html
+
+pipeline_output/
+atd_trace.log
