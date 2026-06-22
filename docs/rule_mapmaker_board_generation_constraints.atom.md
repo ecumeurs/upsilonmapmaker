@@ -1,5 +1,5 @@
 ---
-id: mapmaker_board_generation_constraints
+id: rule_mapmaker_board_generation_constraints
 status: DRAFT
 human_name: "MapMaker Generation Constraints"
 type: RULE
@@ -12,7 +12,7 @@ parents:
   - [[contract_mapmaker_contract]]
 ---
 
-# New Atom
+# MapMaker Generation Constraints
 
 ## INTENT
 Ensure generated maps are tactical and manageable within the engine's performance limits.
@@ -24,7 +24,7 @@ Ensure generated maps are tactical and manageable within the engine's performanc
 - **Verticality:** Must support at least one ground level.
 
 ## TECHNICAL INTERFACE
-- **Code Tag:** `@spec-link [[mapmaker_board_generation_constraints]]`
+- **Code Tag:** `@spec-link [[rule_mapmaker_board_generation_constraints]]`
 
 ## EXPECTATION
 Every generated map must fall within the defined size and density ranges.

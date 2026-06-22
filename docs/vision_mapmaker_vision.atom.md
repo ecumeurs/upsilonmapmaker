@@ -12,7 +12,7 @@ layer: BUSINESS
 priority: 1
 ---
 
-# New Atom
+# UpsilonMapMaker Vision
 
 ## INTENT
 Define the vision for UpsilonMapMaker as the procedural architect of the tactical battlefield.
@@ -25,7 +25,7 @@ Define the vision for UpsilonMapMaker as the procedural architect of the tactica
   - **Performance:** Generate complex boards in milliseconds to support instant matchmaking.
 
 ## TECHNICAL INTERFACE
-- **Code Tag:** `@spec-link [[mapmaker_vision]]`
-- **Related Atoms:** `[[shared:upsilon_vision]]`
+- **Code Tag:** `@spec-link [[vision_mapmaker_vision]]`
+- **Related Atoms:** `[[shared:vision_upsilon_vision]]`
 
 ## EXPECTATION

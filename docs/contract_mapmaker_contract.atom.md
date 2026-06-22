@@ -2,7 +2,9 @@
 id: contract_mapmaker_contract
 status: STABLE
 type: CONTRACT
-dependents: []
+dependents:
+  - [[rule_mapmaker_board_generation_constraints]]
+  - [[rule_mapmaker_seed_determinism]]
 layer: BUSINESS
 version: 1.0
 priority: 1
@@ -12,7 +14,7 @@ parents:
 human_name: UpsilonMapMaker Contract
 ---
 
-# New Atom
+# UpsilonMapMaker Contract
 
 ## INTENT
 Establish the algorithmic constraints and output standards for procedural map generation.
@@ -27,7 +29,7 @@ Establish the algorithmic constraints and output standards for procedural map ge
 - **Pathfinding:** Must verify that at least one path exists between opposing team spawn points.
 
 ## TECHNICAL INTERFACE
-- **Code Tag:** `@spec-link [[mapmaker_contract]]`
-- **Related Atoms:** `[[shared:upsilon_contract]]`
+- **Code Tag:** `@spec-link [[contract_mapmaker_contract]]`
+- **Related Atoms:** `[[shared:contract_upsilon_contract]]`
 
 ## EXPECTATION
